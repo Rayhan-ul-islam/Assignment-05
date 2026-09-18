@@ -1,2 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@layer utilities {
+  .text-gradient-dev {
+    @apply bg-linear-to-r from-[#FF5722] via-[#b30740] to-[#6f048d] bg-clip-text text-transparent;
+  }
+}

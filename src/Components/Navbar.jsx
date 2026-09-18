@@ -3,8 +3,8 @@ import logo from '../assets/logo-text.png'
 const Navbar = () => {
     return (
         <>
-            <div className='border-b border-gray-200'>
-                <div className="container mx-auto flex items-center justify-center relative p-2 lg:px-8 min-h-16]">
+            <div className='border-b border-gray-200 fixed top-0 left-0 right-0 bg-white'>
+                <div className="container mx-auto flex items-center justify-center relative py-2 lg:min-h-16]">
 
                     <div className="absolute left-2 lg:static flex items-center justify-start lg:hidden">
                         <div className="dropdown">
