@@ -7,7 +7,7 @@ const Technologies = ({ techPromise }) => {
     return (
         <div className="col-span-3 grid justify-center gap-5 sm:grid-rows-1 md:grid-cols-3 mb-15">
             {allTechnologies.map(tech => (
-               <TechnologyCard tech={tech}></TechnologyCard>
+               <TechnologyCard tech={tech} key={tech.id}></TechnologyCard>
             ))}
         </div>
     );
