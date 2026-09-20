@@ -26,6 +26,7 @@ function App() {
           <Suspense fallback={<h1>Loading.....</h1>}>
             <Technologies
               techPromise={techPromise}
+              addToStack={addToStack}
               setAddToStack={setAddToStack}
             />
           </Suspense>

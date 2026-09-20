@@ -1,11 +1,12 @@
-const TechnologyCard = ({ tech, setAddToStack }) => {
+const TechnologyCard = ({ tech, addToStack, setAddToStack }) => {
+
+  const isAdded = addToStack.some(
+    (item) => item.id === tech.id
+  );
+
   const handleAddToStack = () => {
     setAddToStack((previous) => {
-      const alreadyAdded = previous.some(
-        (item) => item.id === tech.id
-      );
-
-      if (alreadyAdded) {
+      if (previous.some((item) => item.id === tech.id)) {
         return previous;
       }
 
@@ -16,12 +17,11 @@ const TechnologyCard = ({ tech, setAddToStack }) => {
   return (
     <div>
       <div className="max-w-xs p-6 bg-white border border-gray-100 rounded-3xl shadow-sm font-sans">
+
         <div className="flex items-center justify-between mb-4">
           <img
             src={tech.icon}
             className="w-10 h-10"
-            width="100%"
-            height="100%"
             alt={tech.name}
           />
 
@@ -55,10 +55,16 @@ const TechnologyCard = ({ tech, setAddToStack }) => {
 
         <button
           onClick={handleAddToStack}
-          className="w-full py-3 bg-slate-950 text-white text-sm font-medium rounded-xl hover:bg-slate-800 transition-colors"
+          disabled={isAdded}
+          className={`w-full py-3 text-white text-sm font-medium rounded-xl transition-colors ${
+            isAdded
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-slate-950 hover:bg-slate-800"
+          }`}
         >
-          Add to Stack
+          {isAdded ? "Added to Stack" : "Add to Stack"}
         </button>
+
       </div>
     </div>
   );

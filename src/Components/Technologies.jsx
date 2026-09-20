@@ -1,7 +1,11 @@
 import { use } from "react";
 import TechnologyCard from "./TechnologyCard";
 
-const Technologies = ({ techPromise, setAddToStack }) => {
+const Technologies = ({
+  techPromise,
+  addToStack,
+  setAddToStack,
+}) => {
   const allTechnologies = use(techPromise);
 
   return (
@@ -10,6 +14,7 @@ const Technologies = ({ techPromise, setAddToStack }) => {
         <TechnologyCard
           tech={tech}
           key={tech.id}
+          addToStack={addToStack}
           setAddToStack={setAddToStack}
         />
       ))}
