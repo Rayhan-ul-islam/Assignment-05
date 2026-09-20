@@ -1,8 +1,8 @@
 const AddTechList = () => {
     return (
-        <div className="w-full min-w-0">
+        <div className="col-span-3 w-full min-w-0 md:col-span-1 mb-40">
             <div className="flex w-full items-center justify-center">
-                <div className="w-full max-w-sm rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-all sm:rounded-3xl sm:p-6 md:p-8">
+                <div className="w-full max-w-xs rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-all sm:rounded-3xl sm:p-6 md:p-8">
                     <h2 className="text-lg font-bold text-slate-900 sm:text-xl md:text-2xl">
                         Your Stack
                     </h2>
