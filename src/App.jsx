@@ -7,6 +7,7 @@ import Main from "./Components/Main";
 import Navbar from "./Components/Navbar";
 import Technologies from "./Components/Technologies";
 import AddTechList from "./Components/AddTechList";
+import Footer from "./Components/Footer";
 
 const fetchData = async () => {
   const res = await fetch("/data.json");
@@ -40,6 +41,7 @@ function App() {
           />
         </section>
       </Main>
+      <Footer></Footer>
 
       <ToastContainer position="bottom-right"/>
     </>
