@@ -1,17 +1,19 @@
-const TechnologyCard = ({ tech, addToStack, setAddToStack }) => {
+import { toast } from "react-toastify";
 
+const TechnologyCard = ({ tech, addToStack, setAddToStack }) => {
   const isAdded = addToStack.some(
     (item) => item.id === tech.id
   );
 
   const handleAddToStack = () => {
-    setAddToStack((previous) => {
-      if (previous.some((item) => item.id === tech.id)) {
-        return previous;
-      }
+    if (isAdded) {
+      toast.warning(`${tech.name} is already in your stack!`);
+      return;
+    }
 
-      return [...previous, tech];
-    });
+    setAddToStack((previous) => [...previous, tech]);
+
+    toast.success(`${tech.name} added to your stack!`);
   };
 
   return (
@@ -21,8 +23,10 @@ const TechnologyCard = ({ tech, addToStack, setAddToStack }) => {
         <div className="flex items-center justify-between mb-4">
           <img
             src={tech.icon}
-            className="w-10 h-10"
             alt={tech.name}
+            className="w-10 h-10"
+            width="100%"
+            height="100%"
           />
 
           <span className="px-3 py-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded-full border border-emerald-100">
@@ -55,10 +59,9 @@ const TechnologyCard = ({ tech, addToStack, setAddToStack }) => {
 
         <button
           onClick={handleAddToStack}
-          disabled={isAdded}
           className={`w-full py-3 text-white text-sm font-medium rounded-xl transition-colors ${
             isAdded
-              ? "bg-gray-400 cursor-not-allowed"
+              ? "bg-gray-400 hover:bg-gray-500"
               : "bg-slate-950 hover:bg-slate-800"
           }`}
         >

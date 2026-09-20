@@ -1,4 +1,7 @@
 import { Suspense, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Hero from "./Components/Hero";
 import Main from "./Components/Main";
 import Navbar from "./Components/Navbar";
@@ -37,6 +40,8 @@ function App() {
           />
         </section>
       </Main>
+
+      <ToastContainer position="bottom-right"/>
     </>
   );
 }

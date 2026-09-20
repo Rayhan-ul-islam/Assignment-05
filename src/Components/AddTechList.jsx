@@ -1,19 +1,34 @@
+import { toast } from "react-toastify";
+
 const AddTechList = ({ addToStack, setAddToStack }) => {
   const handleRemove = (id) => {
+    const removedTech = addToStack.find(
+      (tech) => tech.id === id
+    );
+
     setAddToStack((previous) => {
       return previous.filter((tech) => tech.id !== id);
     });
+
+    toast.info(`${removedTech.name} removed from your stack.`);
   };
 
   const handleRemoveAll = () => {
+    if (addToStack.length === 0) {
+      toast.warning("Your stack is already empty!");
+      return;
+    }
+
     setAddToStack([]);
+
+    toast.success("All technologies removed!");
   };
 
   return (
     <div className="col-span-3 w-full min-w-0 md:col-span-1">
       <div className="flex w-full items-center justify-center">
         <div className="w-full max-w-xs rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-all sm:max-w-sm sm:rounded-3xl sm:p-6 md:p-8">
-          
+
           <h2 className="text-lg font-bold text-slate-900 sm:text-xl md:text-2xl">
             Your Stack
           </h2>
@@ -51,7 +66,6 @@ const AddTechList = ({ addToStack, setAddToStack }) => {
                     <button
                       onClick={() => handleRemove(tech.id)}
                       className="ml-3 shrink-0 text-lg text-slate-400 transition-colors hover:text-red-500"
-                      aria-label={`Remove ${tech.name}`}
                     >
                       ✕
                     </button>
